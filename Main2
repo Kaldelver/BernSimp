@@ -1,0 +1,28 @@
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		  JFrame frame = new JFrame("Bernsimp");
+	       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	       ImageIcon ii = new ImageIcon("C:\\Users\\*********\\Desktop\\Yang_gang\\pixil-frame-0.png");
+	       //this will have to change somehow set it in project folder
+	       JLabel lable = new JLabel(ii);
+	       //calling ImageIcon
+	       @SuppressWarnings("unused")
+		JScrollPane jsp = new JScrollPane(lable);
+	       //for jsp variable is defined for later
+	       frame.getContentPane().add(jsp);
+	       //What happens when u close
+	       frame.setSize(1920,1080);
+	       //size of frame
+	       frame.setVisible(true);
+	      
+		
+	}
+}
