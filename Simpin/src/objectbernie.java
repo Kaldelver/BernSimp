@@ -46,14 +46,12 @@ import javax.swing.*;;
 
 		public void paintComponent(Graphics g){
 			
-			//super.paintComponent(g);
-			//Graphics2D g2 = (Graphics2D) g;
+			super.paintComponent(g);
+			Graphics2D g2 = (Graphics2D) g;
 			
-			//create character object with positions and sizes
-			//Rectangle2D rectangle = new Rectangle2D.Double(xPos, yPos, 40, 40);
+			//create a tangible rectangle that moves with the sprite (allows for collision detection)
+			Rectangle2D rectBernsimp = new Rectangle2D.Double(xPos, yPos, 32, 32);
 			
-			//fill the object (later replaced with sprite)
-			//g.drawImage(image, 40, 40, 100, 100, null);
 			g.drawImage(image, (int)xPos, (int)yPos, (int)xPos + 64, (int)yPos + 64, 32 * spriteFrameX, 32 * spriteFrameY, 32 * spriteFrameX + 32, 32 * spriteFrameY + 32, null);
 			
 		}
@@ -86,7 +84,7 @@ import javax.swing.*;;
 					spriteFrameX = 0;
 					spritePacer = 0;
 				}
-				else if (spritePacer % 35 == 0) {
+				else if (spritePacer % 50 == 0) {
 					spriteFrameX += 1;
 					
 				}
@@ -98,7 +96,7 @@ import javax.swing.*;;
 					spriteFrameX = 0;
 					spritePacer = 0;
 				}
-				else if (spritePacer % 35 == 0) {
+				else if (spritePacer % 50 == 0) {
 					spriteFrameX += 1;
 					
 				}
@@ -110,7 +108,7 @@ import javax.swing.*;;
 					spriteFrameX = 0;
 					spritePacer = 0;
 				}
-				else if (spritePacer % 35 == 0) {
+				else if (spritePacer % 50 == 0) {
 					spriteFrameX += 1;
 					
 				}
@@ -122,7 +120,7 @@ import javax.swing.*;;
 					spriteFrameX = 0;
 					spritePacer = 0;
 				}
-				else if (spritePacer % 35 == 0) {
+				else if (spritePacer % 50 == 0) {
 					spriteFrameX += 1;
 					
 				}
@@ -162,6 +160,7 @@ import javax.swing.*;;
 			if (checkLeft == false && checkRight == false) {
 				
 				xVel = 0;
+				spriteFrameX = 0;
 				
 				if (checkUp == false && checkDown == false) {
 
@@ -172,16 +171,19 @@ import javax.swing.*;;
 			if (checkLeft == false && checkRight == true) {
 				
 				xVel = 1;
+				spriteFrameX = 0;
 			}
 			
 			if (checkLeft == true && checkRight == false) {
 				
 				xVel = -1;
+				spriteFrameX = 0;
 			}
 			
 			if (checkUp == false && checkDown == false) {
 				
 				yVel = 0;
+				spriteFrameX = 0;
 				
 				if (checkLeft == false && checkRight == false)
 				idle = true;
@@ -190,11 +192,13 @@ import javax.swing.*;;
 			if (checkUp == false && checkDown == true) {
 				
 				yVel = 1;
+				spriteFrameX = 0;
 			}
 			
 			if (checkUp == true && checkDown == false) {
 				
 				yVel = -1;
+				spriteFrameX = 0;
 			}
 			
 		}
